@@ -9,7 +9,7 @@
  *
  */
 
-package co.c80.lab.cordova.EmailComposer;
+package co.c80.lab.cordova;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -122,15 +122,24 @@ public class EmailComposer extends CordovaPlugin {
         
 		// setting body
 		try {
-			String body = parameters.getString("body");
-			if (body != null && body.length() > 0) {
-				
-				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
-				
-			}
-		} catch (Exception e) {
-			LOG.e("EmailComposer", "Error handling body param: " + e.toString());
-		}
+            String body = parameters.getString("body");
+            if (body != null && body.length() > 0) {
+                if (isHTML) {
+                    String bodyHtml = Html.fromHtml(body).toString();
+                    LOG.e("EmailComposer", "Creating HTML email with body: " + bodyHtml);
+                    ArrayList<String> extra_text = new ArrayList<String>();
+                    extra_text.add(bodyHtml);
+                    emailIntent.putStringArrayListExtra(android.content.Intent.EXTRA_TEXT, extra_text);
+                } else {
+                    LOG.e("EmailComposer", "Creating text email with body: " + body);
+                    ArrayList<String> extra_text = new ArrayList<String>();
+                    extra_text.add(body);
+                    emailIntent.putStringArrayListExtra(android.content.Intent.EXTRA_TEXT, extra_text);
+                }
+            }
+        } catch (Exception e) {
+            LOG.e("EmailComposer", "Error handling body param: " + e.toString());
+        }
         
 		// setting TO recipients
 		try {
