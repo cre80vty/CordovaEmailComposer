@@ -24,12 +24,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.Html;
+import android.util.*;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.CordovaPlugin;
-import org.apache.cordova.api.LOG;
-
-import org.apache.commons.codec.binary.*;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.LOG;
 
 public class EmailComposer extends CordovaPlugin {
     
@@ -62,7 +61,7 @@ public class EmailComposer extends CordovaPlugin {
 					
 					JSONArray	attachment		= attachments.getJSONArray(i);
 					byte[]		base64Data		= (attachment.getString(0)).getBytes();
-					byte[]		data			= Base64.decodeBase64(base64Data);
+					byte[] data = Base64.decode(base64Data, Base64.DEFAULT);
 					
 					String		filename		= attachment.getString(1);
 					
