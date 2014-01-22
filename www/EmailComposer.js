@@ -1,4 +1,4 @@
-// window.plugins.emailComposer
+// window.plugins.EmailComposer
 
 function EmailComposer() {
 	this.resultCallback = null; // Function
@@ -80,5 +80,5 @@ cordova.addConstructor(function()  {
 					   window.Cordova = cordova;
 					   };
 					   
-					   window.plugins.emailComposer = new EmailComposer();
+					   window.plugins.EmailComposer = new EmailComposer();
 					   });
