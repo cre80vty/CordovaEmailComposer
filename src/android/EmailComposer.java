@@ -94,7 +94,7 @@ public class EmailComposer extends CordovaPlugin {
 		final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND_MULTIPLE);
         
 		//String callback = parameters.getString("callback");
-		/*
+		
          boolean isHTML = false;
          try {
          isHTML = parameters.getBoolean("bIsHTML");
@@ -107,7 +107,7 @@ public class EmailComposer extends CordovaPlugin {
          } else {
          emailIntent.setType("text/plain");
          }
-         */
+        
 		
 		emailIntent.setType("text/plain");
 		// setting subject
@@ -122,24 +122,15 @@ public class EmailComposer extends CordovaPlugin {
         
 		// setting body
 		try {
-            String body = parameters.getString("body");
-            if (body != null && body.length() > 0) {
-                if (isHTML) {
-                    String bodyHtml = Html.fromHtml(body).toString();
-                    LOG.e("EmailComposer", "Creating HTML email with body: " + bodyHtml);
-                    ArrayList<String> extra_text = new ArrayList<String>();
-                    extra_text.add(bodyHtml);
-                    emailIntent.putStringArrayListExtra(android.content.Intent.EXTRA_TEXT, extra_text);
-                } else {
-                    LOG.e("EmailComposer", "Creating text email with body: " + body);
-                    ArrayList<String> extra_text = new ArrayList<String>();
-                    extra_text.add(body);
-                    emailIntent.putStringArrayListExtra(android.content.Intent.EXTRA_TEXT, extra_text);
-                }
-            }
-        } catch (Exception e) {
-            LOG.e("EmailComposer", "Error handling body param: " + e.toString());
-        }
+			String body = parameters.getString("body");
+			if (body != null && body.length() > 0) {
+				
+				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+				
+			}
+		} catch (Exception e) {
+			LOG.e("EmailComposer", "Error handling body param: " + e.toString());
+		}
         
 		// setting TO recipients
 		try {
