@@ -2,11 +2,24 @@
 
  Forked from https://github.com/phonegap/phonegap-plugins
 
- Installation:
- Add the plugin using Cordova's CLI:
+## Supported Platforms
 
-	cordova plugin add httpshttps://github.com/cre80vty/CordovaEmailComposer.git 
+- **iOS**<br>
 
+- **Android**
+
+
+## Adding the Plugin to your project
+Through the [Command-line Interface](http://cordova.apache.org/docs/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface):
+```
+cordova plugin add https://github.com/cre80vty/CordovaEmailComposer.git
+```
+
+## Removing the Plugin from your project
+Through the [Command-line Interface](http://cordova.apache.org/docs/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface):
+```
+cordova plugin rm co.c80.lab.cordova.EmailComposer
+```
 
 Callable interface:
 
