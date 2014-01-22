@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="co.c80.lab.cordova.EmailComposer.EmailComposer"
+        id="co.c80.lab.cordova.EmailComposer"
         version="0.0.1">
 
     <name>EmailComposer</name>
@@ -45,7 +45,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/EmailComposer.java" target-dir="src/co/c80/lab/cordova/EmailComposer" />
+        <source-file src="src/android/EmailComposer.java" target-dir="src/co/c80/lab/cordova" />
     </platform>
 
 </plugin>
