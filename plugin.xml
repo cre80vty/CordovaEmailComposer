@@ -27,12 +27,12 @@
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
 		<feature name="EmailComposer">
-			<param name="ios-package" value="APPEmailComposer"/>
+			<param name="ios-package" value="EmailComposer"/>
 		</feature>
         </config-file>
 
-    	<header-file src="src/ios/APPEmailComposer.h" />
-    	<source-file src="src/ios/APPEmailComposer.m" />
+    	<header-file src="src/ios/EmailComposer.h" />
+    	<source-file src="src/ios/EmailComposer.m" />
 
         <framework src="MessageUI.framework" weak="true" />
     </platform>
